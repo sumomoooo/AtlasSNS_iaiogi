@@ -21,19 +21,22 @@
 </head>
 <body>
     <header>
-        <div id = "head">
-        <h1><a><img src="images/logo.png"></a></h1>
-            <div id="">
-                <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
-                <div>
-                <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
+            <div id = "head">
+                    <h1 class="logo"><a href="{{url('/top')}}"><img src="{{ asset('/images/atlas.png')}}"></a></h1>
+                <div class="profile">
+                    <div class="accordion-container">
+                        <p>{{ Auth::user()->username }}さん</p>
+                            <div class="c"></div>
+                    </div>
+                            <ul class="active">
+                            <li><a href="/top">HOME</a></li>
+                            <li><a href="/profile">プロフィール編集</a></li>
+                            <li><a href="/logout">
+                                <form action="{{ route('logout')  }}">ログアウト</a></li>
+                            </ul>
+                    <div><img src="images/icon1.png"></div>
+                </div>
             </div>
-        </div>
     </header>
     <div id="row">
         <div id="container">
@@ -41,23 +44,26 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>〇〇さんの</p>
+                <p>{{ Auth::user()->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
                 <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="">フォローリスト</a></p>
+                <p class="btn"><a href="{{ asset('/followlist')}}">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
                 <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="">フォロワーリスト</a></p>
+                <p class="btn"><a href="{{ asset('/followerlist')}}">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
     </footer>
+<!-- Javascript・jQueryのファイルリンク -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
     <script src="JavaScriptファイルのURL"></script>
     <script src="JavaScriptファイルのURL"></script>
 </body>

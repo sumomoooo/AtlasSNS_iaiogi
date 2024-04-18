@@ -1,10 +1,80 @@
 @charset "UTF-8";
 
-html{
+html {
     height: 100%;
 }
 
-body{
+body {
     height: 100%;
-    background: #186AC9;
+}
+
+/* ↓追記おぎ コンテンツの中央寄せ*/
+section {
+    /* background-color: #ccd8ff; */
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 50px 0;
+}
+
+div {
+    width: 100px;
+    height: 100px;
+    /* background-color: #4773ff; */
+    /* background-color: #727272; */
+    margin: 0 auto;
+}
+
+/* 背景のグラデーション　
+多数のグラデーションジェネレーターがあるので、それを使って再現したい色がどのようなCSSで実装できるのか確認しましょう。 */
+body {
+    height: 100vh;
+    background-color: #FFFFFF;
+    background-image: linear-gradient(0deg, #ddff00 20%, #007fff 60%);
+}
+
+/* フォームのレイアウトinputタグもlabelタグもインライン要素のため、そのままだとすべて横並びになってしいます。 また、一個一個の項目ごとに余白も付ける必要があるので、それぞれの要素をかたまりにしてあげましょう。 */
+div {
+    margin-bottom: 20px;
+}
+
+label,
+input {
+    display: block;
+}
+
+/* styles.css */
+
+.form-container {
+    display: flex;
+    align-items: center;
+}
+
+.form-group {
+    flex: 1;
+    margin-right: 10px;
+    /* ボタンとの間隔を調整 */
+}
+
+button[type="submit"] {
+    width: 40px;
+    /* ボタンの幅 */
+    height: 40px;
+    /* ボタンの高さ */
+    background-color: transparent;
+    /* ボタンの背景色を透明に */
+    border: none;
+    /* ボーダーをなしに */
+    cursor: pointer;
+    /* カーソルをポインターに */
+}
+
+button[type="submit"] img {
+    width: 100%;
+    /* 画像をボタンにフィットさせる */
+}
+
+/* フォームの枠線を消す */
+.form-group {
+    border: none;
+    outline: none;
+    /* フォーカス時の枠線も消す */
 }
