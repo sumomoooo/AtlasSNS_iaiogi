@@ -25,6 +25,7 @@
 // ■今回はミドルウェアを用いて実装する。
 
 //ログイン前の処理　以下の処理しかできない
+
 // Route::group(['middleware' => 'guest'], function () {
 //ログアウト中のページ
 Route::get('/login', 'Auth\LoginController@login');
@@ -55,10 +56,12 @@ Route::group(['middleware' => 'auth'], function () {
 
   Route::post('/profile/update', 'ProfileController@update')->name('profile_update');
 
-  Route::post('/search', 'UsersController@index');
+  // Route::post('/search', 'UsersController@index');
   Route::post('/search', 'UsersController@search');
 
-  // Route::post('/submit', 'PostsController@submit')->name('submit');
+  // 新規投稿
+  Route::post('/submit', 'PostsController@submit')->name('submit');
+
 
   // ログアウトする
   Route::get('/logout', 'Auth\LoginController@logout')->name('logout');

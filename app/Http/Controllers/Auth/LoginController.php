@@ -54,16 +54,21 @@ class LoginController extends Controller
                 //↓追記1行+with引数２ついる(キーとバリュー)
                 $request->session()->regenerate();
                 return redirect('/top')->with('status', '');
+            } else {
+                return back()->withErrors(['login' => 'Invalid credentials provided.']);
             }
         }
         return view("auth.login");
     }
+
     // ログアウト
     // public function logout(Request $request)
     // {
     //     Auth::logout();
     //     return redirect()->route('logout');
     // }
+
+
     public function logout(Request $request)
     {
         Auth::logout();
